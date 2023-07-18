@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.fighter.donutsapp.ui.theme.Gray
 import com.fighter.donutsapp.ui.theme.Inter
 import com.fighter.donutsapp.ui.theme.PrimaryColor
@@ -29,11 +30,19 @@ import com.fighter.donutsapp.ui.theme.White
 
 @Composable
 fun DonutItem(state: DonutUiState) {
-    Box(
+    ConstraintLayout(
         modifier = Modifier.size(width = 138.dp, height = 130.dp),
     ) {
+
+        val horizontalGuideLine = createGuidelineFromTop(0.2f)
+        val donutTextContainer = createRef()
+        val imageContainer = createRef()
+
         Box(
-            Modifier.fillMaxWidth().zIndex(3f),
+            Modifier.constrainAs(imageContainer){
+                top.linkTo(horizontalGuideLine)
+                bottom.linkTo(horizontalGuideLine)
+            }.fillMaxWidth().zIndex(3f),
             contentAlignment = Alignment.TopCenter
         ) {
             Image(
@@ -45,47 +54,38 @@ fun DonutItem(state: DonutUiState) {
             )
         }
 
-        Box(Modifier.fillMaxSize() , contentAlignment = Alignment.BottomCenter) {
-            Column(
-                Modifier
-                    .size(width = 138.dp, height = 110.dp)
-                    .clip(shape = RoundedCornerShape(16.dp))
-                    .background(White),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(4.dp,
-                    alignment = Alignment.CenterVertically
-                )
-            ) {
-                Text(
-                    modifier = Modifier,
-                    text = state.donutTitle,
-                    fontSize = 14.sp,
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.Medium,
-                    color = Gray
-                )
-                Text(
-                    modifier = Modifier,
-                    text = state.donutPrice,
-                    fontSize = 14.sp,
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.SemiBold,
-                    color = PrimaryColor
-                )
+        Column(
+            Modifier.constrainAs(donutTextContainer){
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
             }
+                .size(width = 138.dp, height = 110.dp)
+                .clip(shape = RoundedCornerShape(16.dp))
+                .background(White),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(
+                4.dp,
+                alignment = Alignment.CenterVertically
+            )
+        ) {
+            Text(
+                modifier = Modifier,
+                text = state.donutTitle,
+                fontSize = 14.sp,
+                fontFamily = Inter,
+                fontWeight = FontWeight.Medium,
+                color = Gray
+            )
+            Text(
+                modifier = Modifier,
+                text = state.donutPrice,
+                fontSize = 14.sp,
+                fontFamily = Inter,
+                fontWeight = FontWeight.SemiBold,
+                color = PrimaryColor
+            )
         }
-//        Row(
-//            Modifier.fillMaxSize(),
-//            horizontalArrangement = Arrangement.Center,
-//        ) {
-//            Image(
-//                modifier = Modifier.size(56.dp),
-//                painter = painterResource(id = state.donutImage),
-//                contentDescription = "",
-//                alignment = Alignment.TopCenter,
-//                contentScale = ContentScale.Fit
-//            )
-//        }
 
     }
 }

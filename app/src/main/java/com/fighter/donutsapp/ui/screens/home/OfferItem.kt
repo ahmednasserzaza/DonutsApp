@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -39,12 +41,12 @@ fun OfferItem(state: OfferUiState, currentIndex: Int) {
     val backgroundAnimation =
         animateColorAsState(targetValue = if (currentIndex % 2 == 0) LightBlue else PinkColor)
 
-    Box(Modifier.size(width = 220.dp, height = 320.dp)) {
+    Box(Modifier.size(width = 220.dp, height = 280.dp)) {
         ConstraintLayout(
             modifier = Modifier
                 .clip(shape = RoundedCornerShape(20.dp))
                 .background(backgroundAnimation.value)
-                .size(width = 190.dp, height = 320.dp)
+                .fillMaxHeight().width(200.dp)
 
         ) {
             val (favoriteIcon, contentContainer) = createRefs()
@@ -84,7 +86,7 @@ fun OfferItem(state: OfferUiState, currentIndex: Int) {
                     color = Black
                 )
                 Text(
-                    modifier = Modifier,
+                    modifier = Modifier.fillMaxWidth().padding(end = 8.dp),
                     text = state.offerContent,
                     fontSize = 12.sp,
                     fontFamily = Inter,
@@ -128,7 +130,7 @@ fun OfferItem(state: OfferUiState, currentIndex: Int) {
         ) {
             Image(
                 modifier = Modifier
-                    .padding(top = 48.dp)
+                    .padding(top = 24.dp)
                     .size(120.dp),
                 painter = painterResource(state.offerDonutImage),
                 contentDescription = "",

@@ -2,11 +2,16 @@ package com.fighter.donutsapp.ui.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -46,12 +51,12 @@ fun HomeContent(state: HomeUiState) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(White100)
+            .background(White100),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 24.dp),
+                .padding(horizontal = 16.dp, vertical = 24.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -86,7 +91,7 @@ fun HomeContent(state: HomeUiState) {
         }
 
         Text(
-            modifier = Modifier.padding(top = 38.dp, start = 24.dp),
+            modifier = Modifier.padding(top = 8.dp, start = 16.dp),
             text = "Today Offers",
             fontSize = 20.sp,
             fontFamily = Inter,
@@ -95,8 +100,8 @@ fun HomeContent(state: HomeUiState) {
         )
 
         LazyRow(
-            contentPadding = PaddingValues(24.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp)
+            contentPadding = PaddingValues(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.offers) { index, item ->
                 OfferItem(state = item, index)
@@ -104,7 +109,7 @@ fun HomeContent(state: HomeUiState) {
         }
 
         Text(
-            modifier = Modifier.padding(top = 24.dp, start = 24.dp),
+            modifier = Modifier.padding(top = 8.dp, start = 16.dp),
             text = "Donuts",
             fontSize = 20.sp,
             fontFamily = Inter,
@@ -113,14 +118,53 @@ fun HomeContent(state: HomeUiState) {
         )
 
         LazyRow(
-            contentPadding = PaddingValues(24.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp)
+            contentPadding = PaddingValues(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             items(state.donuts) {
                 DonutItem(state = it)
             }
         }
+        Box(contentAlignment = Alignment.BottomCenter , modifier = Modifier.fillMaxHeight(1f).padding(bottom = 24.dp)) {
 
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+                    .aspectRatio(1f)
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                Icon(
+                    modifier = Modifier,
+                    painter = painterResource(id = R.drawable.icon_home),
+                    contentDescription = "", tint = PrimaryColor
+                )
+                Icon(
+                    modifier = Modifier,
+                    painter = painterResource(id = R.drawable.icon_heart),
+                    contentDescription = "", tint = PrimaryColor
+                )
+                Icon(
+                    modifier = Modifier,
+                    painter = painterResource(id = R.drawable.icon_notification),
+                    contentDescription = "", tint = PrimaryColor
+                )
+                Icon(
+                    modifier = Modifier,
+                    painter = painterResource(id = R.drawable.icon_buy),
+                    contentDescription = "", tint = PrimaryColor
+                )
+                Icon(
+                    modifier = Modifier,
+                    painter = painterResource(id = R.drawable.icon_user),
+                    contentDescription = "", tint = PrimaryColor
+                )
+
+            }
+        }
 
     }
 
