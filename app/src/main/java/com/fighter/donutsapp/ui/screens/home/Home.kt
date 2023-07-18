@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -138,27 +139,27 @@ fun HomeContent(state: HomeUiState) {
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 Icon(
-                    modifier = Modifier,
+                    modifier = Modifier.size(36.dp),
                     painter = painterResource(id = R.drawable.icon_home),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier,
+                    modifier = Modifier.size(24.dp),
                     painter = painterResource(id = R.drawable.icon_heart),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier,
+                    modifier = Modifier.size(24.dp),
                     painter = painterResource(id = R.drawable.icon_notification),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier,
+                    modifier = Modifier.size(24.dp),
                     painter = painterResource(id = R.drawable.icon_buy),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier,
+                    modifier = Modifier.size(24.dp),
                     painter = painterResource(id = R.drawable.icon_user),
                     contentDescription = "", tint = PrimaryColor
                 )
