@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fighter.donutsapp.R
+import com.fighter.donutsapp.ui.screens.composable.SubTitle
 import com.fighter.donutsapp.ui.theme.Black
 import com.fighter.donutsapp.ui.theme.Inter
 import com.fighter.donutsapp.ui.theme.PinkColor
@@ -73,16 +74,7 @@ fun WelcomeContent() {
                 fontSize = 48.sp,
                 fontWeight = FontWeight.Bold
             )
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 19.dp, start = 40.dp, end = 40.dp),
-                text = stringResource(R.string.welcom_content),
-                color = PrimaryColor100,
-                fontFamily = Inter,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Medium
-            )
+            SubTitle(text = stringResource(R.string.welcom_content), fontSize = 18)
             Button(
                 onClick = {}, modifier = Modifier
                     .padding(40.dp)
