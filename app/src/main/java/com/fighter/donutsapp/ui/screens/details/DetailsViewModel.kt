@@ -27,33 +27,33 @@ class DetailsViewModel @Inject constructor(
 
     private fun getDonutDetails(donutId: String) {
         when(donutId){
-            "Strawberry Wheel "-> _state.update {
+            "Chocolate Cherry"-> _state.update {
                 it.copy(
-                    image = R.drawable.offer_one,
+                    image = R.drawable.d2,
                     name = "Strawberry Wheel",
                     description = "These Baked Strawberry Donuts are filled with fresh strawberries...",
                     price = "$16"
                 )
             }
-            "Chocolate Glaze" -> _state.update {
+            "Strawberry Rain" -> _state.update {
                 it.copy(
-                    image = R.drawable.offer_two,
+                    image = R.drawable.d3,
                     name = "Chocolate Glaze",
                     description = "Moist and fluffy baked chocolate donuts full of chocolate flavor.",
                     price = "$18"
                 )
             }
-            "Craze Donut" -> _state.update {
+            "Strawberry donut" -> _state.update {
                 it.copy(
-                    image = R.drawable.offer_one,
+                    image = R.drawable.d4,
                     name = "Craze Donut",
                     description = "The Red Velvet donut is a visually stunning treat with its vibrant red hue and a rich cocoa flavor. It's often topped with a cream cheese frosting, adding a tangy and creamy element to the sweet donut.",
                     price = "$25"
                 )
             }
-            "Chocolate Cherry" -> _state.update {
+            "Strawberry Wheel" -> _state.update {
                 it.copy(
-                    image = R.drawable.donut_1,
+                    image = R.drawable.d5,
                     name = "Chocolate Cherry",
                     description = "These Baked Strawberry Donuts are filled with fresh strawberries...",
                     price = "$16"
@@ -61,7 +61,7 @@ class DetailsViewModel @Inject constructor(
             }
             "Chocolate Glaze" -> _state.update {
                 it.copy(
-                    image = R.drawable.donut_2,
+                    image = R.drawable.d6,
                     name = "Chocolate Glaze",
                     description = "Moist and fluffy baked chocolate donuts full of chocolate flavor.",
                     price = "$18"
@@ -69,7 +69,7 @@ class DetailsViewModel @Inject constructor(
             }
             "Craze Donut" -> _state.update {
                 it.copy(
-                    image = R.drawable.donut_3,
+                    image = R.drawable.d7,
                     name = "Craze Donut",
                     description = "The Red Velvet donut is a visually stunning treat with its vibrant red hue and a rich cocoa flavor. It's often topped with a cream cheese frosting, adding a tangy and creamy element to the sweet donut.",
                     price = "$25"
@@ -77,7 +77,7 @@ class DetailsViewModel @Inject constructor(
             }
             else -> _state.update {
                 it.copy(
-                    image = R.drawable.donut_1,
+                    image = R.drawable.d8,
                     name = "Chocolate Cherry",
                     description = "The Red Velvet donut is a visually stunning treat with its vibrant red hue and a rich cocoa flavor. It's often topped with a cream cheese frosting, adding a tangy and creamy element to the sweet donut.",
                     price = "$25"

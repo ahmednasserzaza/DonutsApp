@@ -132,27 +132,27 @@ fun HomeContent(state: HomeUiState, onClickDonut: (donutName: String) -> Unit) {
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 Icon(
-                    modifier = Modifier.size(36.dp),
+                    modifier = Modifier.size(28.dp),
                     painter = painterResource(id = R.drawable.icon_home),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(28.dp),
                     painter = painterResource(id = R.drawable.icon_heart),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(28.dp),
                     painter = painterResource(id = R.drawable.icon_notification),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(28.dp),
                     painter = painterResource(id = R.drawable.icon_buy),
                     contentDescription = "", tint = PrimaryColor
                 )
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(28.dp),
                     painter = painterResource(id = R.drawable.icon_user),
                     contentDescription = "", tint = PrimaryColor
                 )

@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.ui.navigation.DonutNavGraph
+import com.fighter.donutsapp.ui.theme.PrimaryColor100
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -15,7 +16,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun DonutsApp() {
     Scaffold {
         val systemUiController = rememberSystemUiController()
-        systemUiController.isSystemBarsVisible = false
+        systemUiController.setStatusBarColor(color = PrimaryColor100)
         val navController = rememberNavController()
         DonutNavGraph(navController = navController)
     }

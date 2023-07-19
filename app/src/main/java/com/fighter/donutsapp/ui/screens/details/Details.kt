@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -41,11 +42,12 @@ import com.fighter.donutsapp.ui.theme.Gray
 import com.fighter.donutsapp.ui.theme.Inter
 import com.fighter.donutsapp.ui.theme.PinkColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor
+import com.fighter.donutsapp.ui.theme.PrimaryColor100
 import com.fighter.donutsapp.ui.theme.White
 import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
-fun DetailsScreen(viewModel: DetailsViewModel = hiltViewModel() ,navController: NavController) {
+fun DetailsScreen(viewModel: DetailsViewModel = hiltViewModel(), navController: NavController) {
     val state = viewModel.state.collectAsState()
     DetailsContent(state.value)
 }
@@ -69,12 +71,20 @@ fun DetailsContent(state: DetailsUiState) {
                 contentDescription = "",
                 tint = PrimaryColor
             )
-            Image(
-                modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = state.image),
-                contentDescription = "",
-                contentScale = ContentScale.Fit
-            )
+            Row(
+                modifier = Modifier.fillMaxSize(1f),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    modifier = Modifier.size(200.dp),
+                    painter = painterResource(id = state.image),
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop,
+                    alignment = Alignment.Center
+                )
+            }
+
         }
         ConstraintLayout(
         ) {
@@ -152,15 +162,18 @@ fun DetailsContent(state: DetailsUiState) {
                     ) {
                         CartControl(text = "-", textColor = Black, backgroundColor = White100)
                         CartControl(text = "1", textColor = Black, backgroundColor = White100)
-                        CartControl(text = "+", textColor = White, backgroundColor = Gray)
+                        CartControl(text = "+", textColor = White, backgroundColor = PrimaryColor100)
                     }
 
-                    Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.BottomCenter) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.BottomCenter
+                    ) {
 
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 24.dp, vertical = 16.dp),
+                                .padding(horizontal = 24.dp, vertical = 36.dp),
                             horizontalArrangement = Arrangement.spacedBy(24.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {

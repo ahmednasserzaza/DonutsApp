@@ -24,19 +24,19 @@ class HomeViewModel @Inject constructor() : ViewModel() {
             it.copy(
                 donuts = listOf(
                     DonutUiState(
-                        donutImage = R.drawable.offer_one,
+                        donutImage = R.drawable.d2,
                         donutTitle = "Chocolate Cherry",
                         donutPrice = "$18",
                         donutId = 0
                     ),
                     DonutUiState(
-                        R.drawable.offer_two,
+                        R.drawable.d3,
                         donutTitle = "Strawberry Rain",
                         donutPrice = "$22",
                         donutId = 1
                     ),
                     DonutUiState(
-                        R.drawable.offer_one,
+                        R.drawable.d4,
                         donutTitle = "Strawberry donut",
                         donutPrice = "$12",
                         donutId = 2
@@ -51,21 +51,21 @@ class HomeViewModel @Inject constructor() : ViewModel() {
             it.copy(
                 offers = listOf(
                     OfferUiState(
-                        offerDonutImage = R.drawable.donut_1,
+                        offerDonutImage = R.drawable.d5,
                         offerTittle = "Strawberry Wheel",
                         offerContent = "These Baked Strawberry Donuts are filled with fresh strawberries...",
                         offerPrice = "$16",
                         offerId = 3
                     ),
                     OfferUiState(
-                        offerDonutImage = R.drawable.donut_2,
+                        offerDonutImage = R.drawable.d6,
                         offerTittle = "Chocolate Glaze",
                         offerContent = "Moist and fluffy baked chocolate donuts full of chocolate flavor.",
                         offerPrice = "$18",
                         offerId = 4
                     ),
                     OfferUiState(
-                        offerDonutImage = R.drawable.donut_3,
+                        offerDonutImage = R.drawable.d7,
                         offerTittle = "Craze Donut",
                         offerContent = "Delicious and Juicy baked chocolate donuts full of Craze Tasty.",
                         offerPrice = "$25",

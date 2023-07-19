@@ -20,7 +20,7 @@ import com.fighter.donutsapp.ui.theme.Inter
 fun CartControl(modifier: Modifier = Modifier ,text:String , textColor:Color , backgroundColor:Color){
     Box(
         modifier = modifier
-            .size(30.dp).clip(shape = RoundedCornerShape(12.dp))
+            .size(48.dp).clip(shape = RoundedCornerShape(12.dp))
             .background(backgroundColor),
         contentAlignment = Alignment.Center
     ) {

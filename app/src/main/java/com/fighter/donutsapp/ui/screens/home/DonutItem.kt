@@ -1,5 +1,6 @@
 package com.fighter.donutsapp.ui.screens.home
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -24,6 +26,8 @@ import androidx.compose.ui.zIndex
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.fighter.donutsapp.ui.theme.Gray
 import com.fighter.donutsapp.ui.theme.Inter
+import com.fighter.donutsapp.ui.theme.LightBlue
+import com.fighter.donutsapp.ui.theme.PinkColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
@@ -33,6 +37,7 @@ fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDon
         modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(donutName) },
     ) {
 
+        val backgroundAnimation = animateColorAsState(targetValue = if (currentIndex % 2 == 0) LightBlue else PinkColor)
         val horizontalGuideLine = createGuidelineFromTop(0.2f)
         val donutTextContainer = createRef()
         val imageContainer = createRef()
@@ -63,17 +68,16 @@ fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDon
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
-                .size(width = 138.dp, height = 110.dp)
+                .size(width = 130.dp, height = 110.dp)
                 .clip(shape = RoundedCornerShape(16.dp))
-                .background(White),
+                .background(backgroundAnimation.value),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(
-                4.dp,
+            verticalArrangement = Arrangement.spacedBy(4.dp,
                 alignment = Alignment.CenterVertically
             )
         ) {
             Text(
-                modifier = Modifier,
+                modifier = Modifier.padding(top = 8.dp),
                 text = state.donutTitle,
                 fontSize = 14.sp,
                 fontFamily = Inter,

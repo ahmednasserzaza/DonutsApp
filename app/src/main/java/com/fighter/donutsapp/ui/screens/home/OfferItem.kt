@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -131,7 +132,7 @@ fun OfferItem(state: OfferUiState, currentIndex: Int, donutName:String , onClick
         ) {
             Image(
                 modifier = Modifier
-                    .padding(top = 24.dp)
+                    .padding(top = 24.dp).offset(x = 16.dp)
                     .size(120.dp),
                 painter = painterResource(state.offerDonutImage),
                 contentDescription = "",
