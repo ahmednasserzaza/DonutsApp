@@ -3,6 +3,7 @@ package com.fighter.donutsapp.ui.screens.home
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,7 @@ import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
 @Composable
-fun OfferItem(state: OfferUiState, currentIndex: Int) {
+fun OfferItem(state: OfferUiState, currentIndex: Int , onClickDonut:(Int) -> Unit) {
     val backgroundAnimation =
         animateColorAsState(targetValue = if (currentIndex % 2 == 0) LightBlue else PinkColor)
 
@@ -46,7 +47,7 @@ fun OfferItem(state: OfferUiState, currentIndex: Int) {
             modifier = Modifier
                 .clip(shape = RoundedCornerShape(20.dp))
                 .background(backgroundAnimation.value)
-                .fillMaxHeight().width(200.dp)
+                .fillMaxHeight().width(200.dp).clickable { onClickDonut(currentIndex) }
 
         ) {
             val (favoriteIcon, contentContainer) = createRefs()

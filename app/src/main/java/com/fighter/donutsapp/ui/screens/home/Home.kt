@@ -35,6 +35,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.R
+import com.fighter.donutsapp.ui.navigation.navigateToDetails
+import com.fighter.donutsapp.ui.navigation.navigateToHome
 import com.fighter.donutsapp.ui.screens.composable.SimpleTitle
 import com.fighter.donutsapp.ui.screens.composable.TextTitle
 import com.fighter.donutsapp.ui.theme.Black
@@ -46,13 +48,13 @@ import com.fighter.donutsapp.ui.theme.White
 import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel() , navController: NavController) {
+fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavController) {
     val state = viewModel.state.collectAsState()
-    HomeContent(state.value)
+    HomeContent(state.value) { index -> navController.navigateToDetails(donutIndex = index) }
 }
 
 @Composable
-fun HomeContent(state: HomeUiState , onClickDonut:(index:Int) -> Unit) {
+fun HomeContent(state: HomeUiState, onClickDonut: (index: Int) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -96,7 +98,7 @@ fun HomeContent(state: HomeUiState , onClickDonut:(index:Int) -> Unit) {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.offers) { index, item ->
-                OfferItem(state = item, index)
+                OfferItem(state = item, index , onClickDonut = onClickDonut)
             }
         }
 

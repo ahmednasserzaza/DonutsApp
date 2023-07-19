@@ -35,15 +35,14 @@ import com.fighter.donutsapp.ui.theme.PinkColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor100
 import com.fighter.donutsapp.ui.theme.White
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
-    WelcomeContent(onClickGetStarted = {navController.navigateToHome()})
+    WelcomeContent(onClickGetStarted = { navController.navigateToHome() })
 }
 
 @Composable
-fun WelcomeContent(onClickGetStarted:() -> Unit) {
+fun WelcomeContent(onClickGetStarted: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -75,9 +74,13 @@ fun WelcomeContent(onClickGetStarted:() -> Unit) {
                 fontSize = 48.sp,
                 fontWeight = FontWeight.Bold
             )
-            SubTitle(text = stringResource(R.string.welcom_content), fontSize = 18 , color = PrimaryColor100)
+            SubTitle(
+                text = stringResource(R.string.welcom_content),
+                fontSize = 18,
+                color = PrimaryColor100
+            )
             Button(
-                onClick = {}, modifier = Modifier
+                onClick = { onClickGetStarted() }, modifier = Modifier
                     .padding(40.dp)
                     .fillMaxWidth()
                     .height(67.dp),
