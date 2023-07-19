@@ -18,6 +18,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.R
@@ -43,12 +45,13 @@ import com.fighter.donutsapp.ui.theme.White
 import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
-fun DetailsScreen(navController: NavController) {
-    DetailsContent()
+fun DetailsScreen(viewModel: DetailsViewModel = hiltViewModel() ,navController: NavController) {
+    val state = viewModel.state.collectAsState()
+    DetailsContent(state.value)
 }
 
 @Composable
-fun DetailsContent() {
+fun DetailsContent(state: DetailsUiState) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -68,7 +71,7 @@ fun DetailsContent() {
             )
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = R.drawable.details_donut),
+                painter = painterResource(id = state.image),
                 contentDescription = "",
                 contentScale = ContentScale.Fit
             )
@@ -111,7 +114,7 @@ fun DetailsContent() {
             ) {
 
                 Column(modifier = Modifier.fillMaxSize()) {
-                    TextTitle(modifier = Modifier.padding(24.dp), text = "Strawberry Wheel")
+                    TextTitle(modifier = Modifier.padding(24.dp), text = state.name)
                     Text(
                         modifier = Modifier
                             .padding(start = 24.dp),
@@ -125,7 +128,7 @@ fun DetailsContent() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = 24.dp, end = 24.dp, top = 16.dp),
-                        text = "These soft, cake-like Strawberry Frosted Donuts feature fresh strawberries and a delicious fresh strawberry glaze frosting. Pretty enough for company and the perfect treat to satisfy your sweet tooth.",
+                        text = state.description,
                         color = Gray,
                         fontFamily = Inter,
                         fontSize = 14.sp,
@@ -163,7 +166,7 @@ fun DetailsContent() {
                         ) {
 
                             Text(
-                                text = "$16",
+                                text = state.price,
                                 color = Black,
                                 fontFamily = Inter,
                                 fontSize = 30.sp,
@@ -200,5 +203,5 @@ fun DetailsContent() {
 @Preview
 @Composable
 fun PreviewDetails() {
-    DetailsScreen(rememberNavController())
+    DetailsScreen(navController = rememberNavController())
 }
