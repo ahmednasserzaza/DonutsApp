@@ -26,17 +26,20 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                     DonutUiState(
                         donutImage = R.drawable.offer_one,
                         donutTitle = "Chocolate Cherry",
-                        donutPrice = "$18"
+                        donutPrice = "$18",
+                        donutId = 0
                     ),
                     DonutUiState(
                         R.drawable.offer_two,
                         donutTitle = "Strawberry Rain",
-                        donutPrice = "$22"
+                        donutPrice = "$22",
+                        donutId = 1
                     ),
                     DonutUiState(
                         R.drawable.offer_one,
                         donutTitle = "Strawberry donut",
-                        donutPrice = "$12"
+                        donutPrice = "$12",
+                        donutId = 2
                     ),
                 )
             )
@@ -51,19 +54,22 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                         offerDonutImage = R.drawable.donut_1,
                         offerTittle = "Strawberry Wheel",
                         offerContent = "These Baked Strawberry Donuts are filled with fresh strawberries...",
-                        offerPrice = "$16"
+                        offerPrice = "$16",
+                        offerId = 3
                     ),
                     OfferUiState(
                         offerDonutImage = R.drawable.donut_2,
                         offerTittle = "Chocolate Glaze",
                         offerContent = "Moist and fluffy baked chocolate donuts full of chocolate flavor.",
-                        offerPrice = "$18"
+                        offerPrice = "$18",
+                        offerId = 4
                     ),
                     OfferUiState(
                         offerDonutImage = R.drawable.donut_3,
                         offerTittle = "Craze Donut",
                         offerContent = "Delicious and Juicy baked chocolate donuts full of Craze Tasty.",
-                        offerPrice = "$25"
+                        offerPrice = "$25",
+                        offerId = 5
                     ),
                 )
             )

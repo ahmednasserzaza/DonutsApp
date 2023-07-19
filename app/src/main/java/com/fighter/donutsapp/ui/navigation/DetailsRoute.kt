@@ -12,19 +12,19 @@ import com.fighter.donutsapp.ui.screens.details.DetailsScreen
 private val ROUTE = DonutAppDestination.Details.route
 
 fun NavGraphBuilder.detailsRoute(navController: NavController) {
-    composable(route = "$ROUTE/{${DonutDetailArgs.DONUT_INDEX}}",
-        arguments = listOf(navArgument(DonutDetailArgs.DONUT_INDEX) { NavType.IntType })
+    composable(route = "$ROUTE/{${DonutDetailArgs.DONUT_ID}}",
+        arguments = listOf(navArgument(DonutDetailArgs.DONUT_ID) { NavType.IntType })
     ) { DetailsScreen(navController = navController) }
 }
 
-fun NavController.navigateToDetails(donutIndex: Int) {
-    navigate("$ROUTE/$donutIndex")
+fun NavController.navigateToDetails(donutId: Int) {
+    navigate("$ROUTE/$donutId")
 }
 
 class DonutDetailArgs(savedStateHandle: SavedStateHandle) {
-    val donutIndex: Int = checkNotNull(savedStateHandle[DONUT_INDEX])
+    val donutId: Int = checkNotNull(savedStateHandle[DONUT_ID])
 
     companion object {
-        const val DONUT_INDEX = "donut"
+        const val DONUT_ID = "donut"
     }
 }

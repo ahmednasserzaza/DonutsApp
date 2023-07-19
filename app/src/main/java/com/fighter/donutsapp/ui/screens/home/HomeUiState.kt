@@ -12,10 +12,12 @@ data class OfferUiState(
     val offerTittle: String = "",
     val offerContent: String = "",
     val offerPrice: String = "",
+    val offerId: Int = 0
 )
 
 data class DonutUiState(
     val donutImage: Int = R.drawable.donut_1,
     val donutTitle: String = "",
-    val donutPrice: String = ""
+    val donutPrice: String = "",
+    val donutId: Int = 10
 )

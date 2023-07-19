@@ -38,16 +38,16 @@ import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
 @Composable
-fun OfferItem(state: OfferUiState, currentIndex: Int , onClickDonut:(Int) -> Unit) {
+fun OfferItem(state: OfferUiState, currentId: Int, onClickDonut:(Int) -> Unit) {
     val backgroundAnimation =
-        animateColorAsState(targetValue = if (currentIndex % 2 == 0) LightBlue else PinkColor)
+        animateColorAsState(targetValue = if (currentId % 2 == 0) LightBlue else PinkColor)
 
     Box(Modifier.size(width = 220.dp, height = 280.dp)) {
         ConstraintLayout(
             modifier = Modifier
                 .clip(shape = RoundedCornerShape(20.dp))
                 .background(backgroundAnimation.value)
-                .fillMaxHeight().width(200.dp).clickable { onClickDonut(currentIndex) }
+                .fillMaxHeight().width(200.dp).clickable { onClickDonut(currentId) }
 
         ) {
             val (favoriteIcon, contentContainer) = createRefs()

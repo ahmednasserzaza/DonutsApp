@@ -14,9 +14,17 @@ class DetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(HomeUiState())
+    private val _state = MutableStateFlow(DetailsUiState())
     val state = _state.asStateFlow()
 
     private val args = DonutDetailArgs(savedStateHandle)
+
+    init {
+        getDonutDetails(args.donutId)
+    }
+
+    private fun getDonutDetails(donutId: Int) {
+
+    }
 
 }

@@ -6,8 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,9 +28,9 @@ import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
 @Composable
-fun DonutItem(state: DonutUiState, currentIndex:Int , onClickDonut: (Int) -> Unit) {
+fun DonutItem(state: DonutUiState, id:Int, onClickDonut: (Int) -> Unit) {
     ConstraintLayout(
-        modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(currentIndex) },
+        modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(id) },
     ) {
 
         val horizontalGuideLine = createGuidelineFromTop(0.2f)

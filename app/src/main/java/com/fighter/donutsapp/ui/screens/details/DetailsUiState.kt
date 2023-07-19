@@ -6,5 +6,6 @@ data class DetailsUiState(
     val image: Int = R.drawable.details_donut,
     val name: String = "",
     val description: String = "",
-    val price: String = ""
+    val price: String = "",
+    val donutId: Int = 0
 )

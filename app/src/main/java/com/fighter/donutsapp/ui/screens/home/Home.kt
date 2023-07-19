@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +14,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -36,7 +34,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.R
 import com.fighter.donutsapp.ui.navigation.navigateToDetails
-import com.fighter.donutsapp.ui.navigation.navigateToHome
 import com.fighter.donutsapp.ui.screens.composable.SimpleTitle
 import com.fighter.donutsapp.ui.screens.composable.TextTitle
 import com.fighter.donutsapp.ui.theme.Black
@@ -44,17 +41,16 @@ import com.fighter.donutsapp.ui.theme.Gray
 import com.fighter.donutsapp.ui.theme.Inter
 import com.fighter.donutsapp.ui.theme.PinkColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor
-import com.fighter.donutsapp.ui.theme.White
 import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavController) {
     val state = viewModel.state.collectAsState()
-    HomeContent(state.value) { index -> navController.navigateToDetails(donutIndex = index) }
+    HomeContent(state.value) { id -> navController.navigateToDetails(donutId = id) }
 }
 
 @Composable
-fun HomeContent(state: HomeUiState, onClickDonut: (index: Int) -> Unit) {
+fun HomeContent(state: HomeUiState, onClickDonut: (id: Int) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -98,7 +94,7 @@ fun HomeContent(state: HomeUiState, onClickDonut: (index: Int) -> Unit) {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.offers) { index, item ->
-                OfferItem(state = item, currentIndex =  index , onClickDonut = onClickDonut)
+                OfferItem(state = item, currentId =  item.offerId , onClickDonut = onClickDonut)
             }
         }
 
@@ -116,7 +112,7 @@ fun HomeContent(state: HomeUiState, onClickDonut: (index: Int) -> Unit) {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.donuts) {index , item ->
-                DonutItem(state = item , currentIndex = index , onClickDonut = onClickDonut)
+                DonutItem(state = item , id = item.donutId , onClickDonut = onClickDonut)
             }
         }
         Box(
