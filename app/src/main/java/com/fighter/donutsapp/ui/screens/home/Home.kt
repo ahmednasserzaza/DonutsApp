@@ -33,6 +33,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.fighter.donutsapp.R
+import com.fighter.donutsapp.ui.screens.composable.SimpleTitle
+import com.fighter.donutsapp.ui.screens.composable.TextTitle
 import com.fighter.donutsapp.ui.theme.Black
 import com.fighter.donutsapp.ui.theme.Gray
 import com.fighter.donutsapp.ui.theme.Inter
@@ -62,13 +64,7 @@ fun HomeContent(state: HomeUiState) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                Text(
-                    text = "Let's Gonuts!",
-                    fontSize = 28.sp,
-                    fontFamily = Inter,
-                    fontWeight = FontWeight.SemiBold,
-                    color = PrimaryColor
-                )
+                TextTitle(text = "Let's Gonuts!")
                 Text(
                     text = "Order your favourite donuts from here",
                     fontSize = 14.sp,
@@ -91,14 +87,7 @@ fun HomeContent(state: HomeUiState) {
 
         }
 
-        Text(
-            modifier = Modifier.padding(top = 8.dp, start = 16.dp),
-            text = "Today Offers",
-            fontSize = 20.sp,
-            fontFamily = Inter,
-            fontWeight = FontWeight.SemiBold,
-            color = Black
-        )
+        SimpleTitle(text = "Today Offers", color = Black)
 
         LazyRow(
             contentPadding = PaddingValues(16.dp),
@@ -126,7 +115,11 @@ fun HomeContent(state: HomeUiState) {
                 DonutItem(state = it)
             }
         }
-        Box(contentAlignment = Alignment.BottomCenter , modifier = Modifier.fillMaxHeight(1f).padding(bottom = 24.dp)) {
+        Box(
+            contentAlignment = Alignment.BottomCenter, modifier = Modifier
+                .fillMaxHeight(1f)
+                .padding(bottom = 24.dp)
+        ) {
 
 
             Row(

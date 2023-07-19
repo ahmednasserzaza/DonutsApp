@@ -74,7 +74,7 @@ fun WelcomeContent() {
                 fontSize = 48.sp,
                 fontWeight = FontWeight.Bold
             )
-            SubTitle(text = stringResource(R.string.welcom_content), fontSize = 18)
+            SubTitle(text = stringResource(R.string.welcom_content), fontSize = 18 , color = PrimaryColor100)
             Button(
                 onClick = {}, modifier = Modifier
                     .padding(40.dp)
