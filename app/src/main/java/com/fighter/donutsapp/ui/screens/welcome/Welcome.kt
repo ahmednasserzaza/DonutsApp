@@ -24,7 +24,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.R
+import com.fighter.donutsapp.ui.navigation.navigateToHome
 import com.fighter.donutsapp.ui.screens.composable.SubTitle
 import com.fighter.donutsapp.ui.theme.Black
 import com.fighter.donutsapp.ui.theme.Inter
@@ -35,19 +38,17 @@ import com.fighter.donutsapp.ui.theme.White
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun WelcomeScreen() {
-    WelcomeContent()
+fun WelcomeScreen(navController: NavController) {
+    WelcomeContent(onClickGetStarted = {navController.navigateToHome()})
 }
 
 @Composable
-fun WelcomeContent() {
+fun WelcomeContent(onClickGetStarted:() -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(PinkColor)
     ) {
-        val systemUiController = rememberSystemUiController()
-        systemUiController.isSystemBarsVisible = false
         Image(
             modifier = Modifier
                 .fillMaxWidth()
@@ -98,5 +99,5 @@ fun WelcomeContent() {
 @Preview
 @Composable
 fun WelcomePreview() {
-    WelcomeScreen()
+    WelcomeScreen(rememberNavController())
 }

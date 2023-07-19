@@ -1,5 +1,6 @@
 package com.fighter.donutsapp.ui.screens.details
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -34,6 +35,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.R
 import com.fighter.donutsapp.ui.screens.composable.CartControl
 import com.fighter.donutsapp.ui.screens.composable.SubTitle
@@ -47,7 +50,7 @@ import com.fighter.donutsapp.ui.theme.White
 import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
-fun DetailsScreen() {
+fun DetailsScreen(navController: NavController) {
     DetailsContent()
 }
 
@@ -204,5 +207,5 @@ fun DetailsContent() {
 @Preview
 @Composable
 fun PreviewDetails() {
-    DetailsScreen()
+    DetailsScreen(rememberNavController())
 }

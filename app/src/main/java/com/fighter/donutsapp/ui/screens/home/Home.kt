@@ -32,6 +32,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.fighter.donutsapp.R
 import com.fighter.donutsapp.ui.screens.composable.SimpleTitle
 import com.fighter.donutsapp.ui.screens.composable.TextTitle
@@ -44,13 +46,13 @@ import com.fighter.donutsapp.ui.theme.White
 import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeScreen(viewModel: HomeViewModel = hiltViewModel() , navController: NavController) {
     val state = viewModel.state.collectAsState()
     HomeContent(state.value)
 }
 
 @Composable
-fun HomeContent(state: HomeUiState) {
+fun HomeContent(state: HomeUiState , onClickDonut:(index:Int) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -169,5 +171,5 @@ fun HomeContent(state: HomeUiState) {
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    HomeScreen()
+    HomeScreen(navController = rememberNavController())
 }
