@@ -98,7 +98,7 @@ fun HomeContent(state: HomeUiState, onClickDonut: (index: Int) -> Unit) {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.offers) { index, item ->
-                OfferItem(state = item, index , onClickDonut = onClickDonut)
+                OfferItem(state = item, currentIndex =  index , onClickDonut = onClickDonut)
             }
         }
 
@@ -115,8 +115,8 @@ fun HomeContent(state: HomeUiState, onClickDonut: (index: Int) -> Unit) {
             contentPadding = PaddingValues(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            items(state.donuts) {
-                DonutItem(state = it)
+            itemsIndexed(state.donuts) {index , item ->
+                DonutItem(state = item , currentIndex = index , onClickDonut = onClickDonut)
             }
         }
         Box(

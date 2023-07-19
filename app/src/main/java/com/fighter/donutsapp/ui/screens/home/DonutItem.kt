@@ -2,6 +2,7 @@ package com.fighter.donutsapp.ui.screens.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,9 +30,9 @@ import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
 @Composable
-fun DonutItem(state: DonutUiState) {
+fun DonutItem(state: DonutUiState, currentIndex:Int , onClickDonut: (Int) -> Unit) {
     ConstraintLayout(
-        modifier = Modifier.size(width = 138.dp, height = 130.dp),
+        modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(currentIndex) },
     ) {
 
         val horizontalGuideLine = createGuidelineFromTop(0.2f)
@@ -39,10 +40,13 @@ fun DonutItem(state: DonutUiState) {
         val imageContainer = createRef()
 
         Box(
-            Modifier.constrainAs(imageContainer){
-                top.linkTo(horizontalGuideLine)
-                bottom.linkTo(horizontalGuideLine)
-            }.fillMaxWidth().zIndex(3f),
+            Modifier
+                .constrainAs(imageContainer) {
+                    top.linkTo(horizontalGuideLine)
+                    bottom.linkTo(horizontalGuideLine)
+                }
+                .fillMaxWidth()
+                .zIndex(3f),
             contentAlignment = Alignment.TopCenter
         ) {
             Image(
@@ -55,11 +59,12 @@ fun DonutItem(state: DonutUiState) {
         }
 
         Column(
-            Modifier.constrainAs(donutTextContainer){
-                bottom.linkTo(parent.bottom)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            }
+            Modifier
+                .constrainAs(donutTextContainer) {
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
                 .size(width = 138.dp, height = 110.dp)
                 .clip(shape = RoundedCornerShape(16.dp))
                 .background(White),
@@ -93,5 +98,5 @@ fun DonutItem(state: DonutUiState) {
 @Preview
 @Composable
 fun PreviewDonut() {
-    DonutItem(DonutUiState())
+    DonutItem(DonutUiState() , 0 , {})
 }
