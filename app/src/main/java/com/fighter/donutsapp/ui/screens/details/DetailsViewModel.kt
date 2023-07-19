@@ -25,9 +25,9 @@ class DetailsViewModel @Inject constructor(
         getDonutDetails(args.donutId)
     }
 
-    private fun getDonutDetails(donutId: Int) {
+    private fun getDonutDetails(donutId: String) {
         when(donutId){
-            0 -> _state.update {
+            "Strawberry Wheel "-> _state.update {
                 it.copy(
                     image = R.drawable.offer_one,
                     name = "Strawberry Wheel",
@@ -35,7 +35,7 @@ class DetailsViewModel @Inject constructor(
                     price = "$16"
                 )
             }
-            1 -> _state.update {
+            "Chocolate Glaze" -> _state.update {
                 it.copy(
                     image = R.drawable.offer_two,
                     name = "Chocolate Glaze",
@@ -43,7 +43,7 @@ class DetailsViewModel @Inject constructor(
                     price = "$18"
                 )
             }
-            2 -> _state.update {
+            "Craze Donut" -> _state.update {
                 it.copy(
                     image = R.drawable.offer_one,
                     name = "Craze Donut",
@@ -51,7 +51,7 @@ class DetailsViewModel @Inject constructor(
                     price = "$25"
                 )
             }
-            3 -> _state.update {
+            "Chocolate Cherry" -> _state.update {
                 it.copy(
                     image = R.drawable.donut_1,
                     name = "Chocolate Cherry",
@@ -59,7 +59,7 @@ class DetailsViewModel @Inject constructor(
                     price = "$16"
                 )
             }
-            4 -> _state.update {
+            "Chocolate Glaze" -> _state.update {
                 it.copy(
                     image = R.drawable.donut_2,
                     name = "Chocolate Glaze",
@@ -67,7 +67,7 @@ class DetailsViewModel @Inject constructor(
                     price = "$18"
                 )
             }
-            5 -> _state.update {
+            "Craze Donut" -> _state.update {
                 it.copy(
                     image = R.drawable.donut_3,
                     name = "Craze Donut",

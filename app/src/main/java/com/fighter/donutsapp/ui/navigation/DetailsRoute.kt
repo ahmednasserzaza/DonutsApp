@@ -13,16 +13,16 @@ private val ROUTE = DonutAppDestination.Details.route
 
 fun NavGraphBuilder.detailsRoute(navController: NavController) {
     composable(route = "$ROUTE/{${DonutDetailArgs.DONUT_ID}}",
-        arguments = listOf(navArgument(DonutDetailArgs.DONUT_ID) { NavType.IntType })
+        arguments = listOf(navArgument(DonutDetailArgs.DONUT_ID) { NavType.StringType })
     ) { DetailsScreen(navController = navController) }
 }
 
-fun NavController.navigateToDetails(donutId: Int) {
-    navigate("$ROUTE/$donutId")
+fun NavController.navigateToDetails(donutName: String) {
+    navigate("$ROUTE/${donutName}")
 }
 
 class DonutDetailArgs(savedStateHandle: SavedStateHandle) {
-    val donutId: Int = checkNotNull(savedStateHandle[DONUT_ID])
+    val donutId: String = checkNotNull(savedStateHandle[DONUT_ID])
 
     companion object {
         const val DONUT_ID = "donut"

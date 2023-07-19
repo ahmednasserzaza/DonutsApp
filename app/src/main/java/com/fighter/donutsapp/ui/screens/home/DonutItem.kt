@@ -28,9 +28,9 @@ import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
 @Composable
-fun DonutItem(state: DonutUiState, id:Int, onClickDonut: (Int) -> Unit) {
+fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDonut: (String) -> Unit) {
     ConstraintLayout(
-        modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(id) },
+        modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(donutName) },
     ) {
 
         val horizontalGuideLine = createGuidelineFromTop(0.2f)
@@ -96,5 +96,5 @@ fun DonutItem(state: DonutUiState, id:Int, onClickDonut: (Int) -> Unit) {
 @Preview
 @Composable
 fun PreviewDonut() {
-    DonutItem(DonutUiState() , 0 , {})
+    DonutItem(DonutUiState() , 0 ,"" , {})
 }

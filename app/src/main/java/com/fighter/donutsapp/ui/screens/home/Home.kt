@@ -46,11 +46,11 @@ import com.fighter.donutsapp.ui.theme.White100
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavController) {
     val state = viewModel.state.collectAsState()
-    HomeContent(state.value) { id -> navController.navigateToDetails(donutId = id) }
+    HomeContent(state.value) { donutName -> navController.navigateToDetails(donutName = donutName) }
 }
 
 @Composable
-fun HomeContent(state: HomeUiState, onClickDonut: (id: Int) -> Unit) {
+fun HomeContent(state: HomeUiState, onClickDonut: (donutName: String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -94,7 +94,7 @@ fun HomeContent(state: HomeUiState, onClickDonut: (id: Int) -> Unit) {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.offers) { index, item ->
-                OfferItem(state = item, currentId =  item.offerId , onClickDonut = onClickDonut)
+                OfferItem(state = item, currentIndex =  index , donutName = item.offerTittle , onClickDonut = onClickDonut)
             }
         }
 
@@ -112,7 +112,7 @@ fun HomeContent(state: HomeUiState, onClickDonut: (id: Int) -> Unit) {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(state.donuts) {index , item ->
-                DonutItem(state = item , id = item.donutId , onClickDonut = onClickDonut)
+                DonutItem(state = item , currentIndex = index , donutName = item.donutTitle , onClickDonut = onClickDonut)
             }
         }
         Box(
