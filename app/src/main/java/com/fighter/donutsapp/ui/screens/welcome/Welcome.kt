@@ -55,9 +55,7 @@ fun WelcomeScreen(navController: NavController) {
 @Composable
 fun WelcomeContent(onClickGetStarted: () -> Unit) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(PinkColor)
+        modifier = Modifier.fillMaxSize().background(PinkColor)
     ) {
         Image(
             modifier = Modifier

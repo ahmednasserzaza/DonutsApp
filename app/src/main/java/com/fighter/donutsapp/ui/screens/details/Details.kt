@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -147,7 +148,7 @@ fun DetailsContent(state: DetailsUiState , onClickMinus:()->Unit , onClickPlus:(
                     Text(
                         modifier = Modifier
                             .padding(horizontal = 24.dp, vertical = 24.dp),
-                        text = "quantity",
+                        text = stringResource(R.string.quantity),
                         color = Gray,
                         fontFamily = Inter,
                         fontSize = 18.sp,
@@ -195,7 +196,7 @@ fun DetailsContent(state: DetailsUiState , onClickMinus:()->Unit , onClickPlus:(
                                         vertical = 8.dp,
                                         horizontal = 16.dp
                                     ),
-                                    text = "Add to cart",
+                                    text = stringResource(R.string.add_to_cart),
                                     color = White,
                                     fontFamily = Inter,
                                     fontSize = 20.sp,
