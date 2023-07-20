@@ -9,4 +9,5 @@
     <string name="donuts">Donuts</string>
     <string name="quantity">quantity</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="about_gonut">About Gonut</string>
 </resources>

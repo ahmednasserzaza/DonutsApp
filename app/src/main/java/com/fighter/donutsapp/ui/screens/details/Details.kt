@@ -129,7 +129,7 @@ fun DetailsContent(state: DetailsUiState , onClickMinus:()->Unit , onClickPlus:(
                     Text(
                         modifier = Modifier
                             .padding(start = 24.dp),
-                        text = "About Gonut",
+                        text = stringResource(R.string.about_gonut),
                         color = Gray,
                         fontFamily = Inter,
                         fontSize = 18.sp,
