@@ -27,19 +27,41 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                         donutImage = R.drawable.d2,
                         donutTitle = "Chocolate Cherry",
                         donutPrice = "$18",
-                        donutId = 0
                     ),
                     DonutUiState(
-                        R.drawable.d3,
+                        donutImage = R.drawable.d3,
                         donutTitle = "Strawberry Rain",
                         donutPrice = "$22",
-                        donutId = 1
                     ),
                     DonutUiState(
-                        R.drawable.d4,
+                        donutImage = R.drawable.d4,
                         donutTitle = "Strawberry donut",
                         donutPrice = "$12",
-                        donutId = 2
+                    ),
+                    DonutUiState(
+                        donutImage = R.drawable.d5,
+                        donutTitle = "Jelly-Filled",
+                        donutPrice = "$7",
+                    ),
+                    DonutUiState(
+                        donutImage = R.drawable.d6,
+                        donutTitle = "Boston Cream",
+                        donutPrice = "$9",
+                    ),
+                    DonutUiState(
+                        donutImage = R.drawable.d7,
+                        donutTitle = "Maple Bar",
+                        donutPrice = "$15",
+                    ),
+                    DonutUiState(
+                        donutImage = R.drawable.d8,
+                        donutTitle = "Old-Fashioned",
+                        donutPrice = "$48",
+                    ),
+                    DonutUiState(
+                        donutImage = R.drawable.d10,
+                        donutTitle = "Powdered Sugar",
+                        donutPrice = "$3",
                     ),
                 )
             )
@@ -71,6 +93,13 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                         offerPrice = "$25",
                         offerId = 5
                     ),
+                    OfferUiState(
+                        offerDonutImage = R.drawable.d11,
+                        offerTittle = "Raspberry Filled",
+                        offerContent = "Donuts filled with tangy raspberry preserves, balancing sweetness with a zesty twist.",
+                        offerPrice = "$16",
+                        offerId = 3
+                    )
                 )
             )
         }

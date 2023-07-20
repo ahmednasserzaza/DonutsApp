@@ -49,11 +49,11 @@ import com.fighter.donutsapp.ui.theme.White100
 @Composable
 fun DetailsScreen(viewModel: DetailsViewModel = hiltViewModel(), navController: NavController) {
     val state = viewModel.state.collectAsState()
-    DetailsContent(state.value)
+    DetailsContent(state.value , viewModel::decrement , viewModel::increment)
 }
 
 @Composable
-fun DetailsContent(state: DetailsUiState) {
+fun DetailsContent(state: DetailsUiState , onClickMinus:()->Unit , onClickPlus:() -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -160,9 +160,9 @@ fun DetailsContent(state: DetailsUiState) {
                         horizontalArrangement = Arrangement.spacedBy(16.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        CartControl(text = "-", textColor = Black, backgroundColor = White100)
-                        CartControl(text = "1", textColor = Black, backgroundColor = White100)
-                        CartControl(text = "+", textColor = White, backgroundColor = PrimaryColor100)
+                        CartControl(text = "-", textColor = Black, backgroundColor = White100 , onClickMinus = onClickMinus)
+                        CartControl(text = state.counter.toString(), textColor = Black, backgroundColor = White100)
+                        CartControl(text = "+", textColor = White, backgroundColor = PrimaryColor100 , onClickPlus = onClickPlus)
                     }
 
                     Box(
@@ -177,9 +177,9 @@ fun DetailsContent(state: DetailsUiState) {
                             horizontalArrangement = Arrangement.spacedBy(24.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-
+                            val total = state.counter * state.price.toInt()
                             Text(
-                                text = state.price,
+                                text = "$$total",
                                 color = Black,
                                 fontFamily = Inter,
                                 fontSize = 30.sp,
