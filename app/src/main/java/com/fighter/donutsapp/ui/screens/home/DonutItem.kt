@@ -62,7 +62,7 @@ fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDon
         }
 
         Column(
-            Modifier.shadow(elevation = 4.dp, shape = RoundedCornerShape(16.dp))
+            Modifier.shadow(elevation = 2.dp, shape = RoundedCornerShape(16.dp))
                 .constrainAs(donutTextContainer) {
                     bottom.linkTo(parent.bottom)
                     start.linkTo(parent.start)

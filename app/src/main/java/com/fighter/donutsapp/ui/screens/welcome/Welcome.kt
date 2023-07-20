@@ -44,6 +44,7 @@ import com.fighter.donutsapp.ui.theme.PinkColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.PrimaryColor100
 import com.fighter.donutsapp.ui.theme.White
+import com.fighter.donutsapp.ui.theme.White100
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
@@ -98,7 +99,7 @@ fun WelcomeContent(onClickGetStarted: () -> Unit) {
                     .padding(40.dp)
                     .fillMaxWidth()
                     .height(67.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = White)
+                colors = ButtonDefaults.buttonColors(containerColor = White100)
             ) {
                 Text(
                     text = "Get Started",
