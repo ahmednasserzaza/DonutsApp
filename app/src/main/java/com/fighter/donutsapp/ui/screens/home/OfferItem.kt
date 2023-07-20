@@ -40,16 +40,19 @@ import com.fighter.donutsapp.ui.theme.PrimaryColor
 import com.fighter.donutsapp.ui.theme.White
 
 @Composable
-fun OfferItem(state: OfferUiState, currentIndex: Int, donutName:String , onClickDonut:(String) -> Unit) {
+fun OfferItem(state: DonutUiState, currentIndex: Int, donutName:String , onClickDonut:(String) -> Unit) {
     val backgroundAnimation =
         animateColorAsState(targetValue = if (currentIndex % 2 == 0) LightBlue else PinkColor)
 
     Box(Modifier.size(width = 220.dp, height = 280.dp)) {
         ConstraintLayout(
-            modifier = Modifier.shadow(elevation = 2.dp , shape = RoundedCornerShape(20.dp))
+            modifier = Modifier
+                .shadow(elevation = 2.dp, shape = RoundedCornerShape(20.dp))
                 .clip(shape = RoundedCornerShape(20.dp))
                 .background(backgroundAnimation.value)
-                .fillMaxHeight().width(200.dp).clickable { onClickDonut(donutName) }
+                .fillMaxHeight()
+                .width(200.dp)
+                .clickable { onClickDonut(donutName) }
 
         ) {
             val (favoriteIcon, contentContainer) = createRefs()
@@ -82,15 +85,17 @@ fun OfferItem(state: OfferUiState, currentIndex: Int, donutName:String , onClick
             ) {
                 Text(
                     modifier = Modifier,
-                    text = state.offerTittle,
+                    text = state.donutTitle,
                     fontSize = 16.sp,
                     fontFamily = Inter,
                     fontWeight = FontWeight.Medium,
                     color = Black
                 )
                 Text(
-                    modifier = Modifier.fillMaxWidth().padding(end = 8.dp),
-                    text = state.offerContent,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(end = 8.dp),
+                    text = state.description,
                     fontSize = 12.sp,
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
@@ -114,7 +119,7 @@ fun OfferItem(state: OfferUiState, currentIndex: Int, donutName:String , onClick
                     )
                     Text(
                         modifier = Modifier,
-                        text = state.offerPrice,
+                        text = "$${state.donutPrice}",
                         fontSize = 22.sp,
                         fontFamily = Inter,
                         fontWeight = FontWeight.SemiBold,
@@ -133,9 +138,10 @@ fun OfferItem(state: OfferUiState, currentIndex: Int, donutName:String , onClick
         ) {
             Image(
                 modifier = Modifier
-                    .padding(top = 24.dp).offset(x = 16.dp)
+                    .padding(top = 24.dp)
+                    .offset(x = 16.dp)
                     .size(120.dp),
-                painter = painterResource(state.offerDonutImage),
+                painter = painterResource(state.donutImage),
                 contentDescription = "",
                 alignment = Alignment.CenterEnd,
                 contentScale = ContentScale.Fit

@@ -93,8 +93,8 @@ fun HomeContent(state: HomeUiState, onClickDonut: (donutName: String) -> Unit) {
             contentPadding = PaddingValues(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            itemsIndexed(state.offers) { index, item ->
-                OfferItem(state = item, currentIndex =  index , donutName = item.offerTittle , onClickDonut = onClickDonut)
+            itemsIndexed(state.donuts) { index, item ->
+                OfferItem(state = item, currentIndex =  index , donutName = item.donutTitle , onClickDonut = onClickDonut)
             }
         }
 
