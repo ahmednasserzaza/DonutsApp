@@ -21,7 +21,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
     }
 
     private fun getDonuts() {
-        _state.update { it.copy(donuts = FakeData.getRandomOfferDonuts()) }
+        _state.update { it.copy(donuts = FakeData.getRandomDonuts()) }
     }
 
     private fun getDonutOffers() {

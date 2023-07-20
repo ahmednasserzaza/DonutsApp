@@ -83,28 +83,11 @@ object FakeData {
         ),
     )
 
-    fun getRandomOfferDonuts(): List<DonutUiState> {
+    fun getRandomDonuts(): List<DonutUiState> {
         return donuts.shuffled().take(8)
     }
-    fun getRandomDonuts(): List<DonutUiState> {
-        val random = Random()
-        val randomDonuts = mutableListOf<DonutUiState>()
-
-        while (randomDonuts.size < 10) {
-            val randomIndex = random.nextInt(donuts.size)
-            val randomDonut = donuts[randomIndex]
-            if (!randomDonuts.contains(randomDonut)) {
-                randomDonuts.add(randomDonut)
-            }
-        }
-
-        return randomDonuts
-    }
-
 
     fun getDonutByName(donutName: String): DetailsUiState? {
         return donuts.find { it.donutTitle == donutName }?.toDetailsUiState()
     }
-
-
 }
