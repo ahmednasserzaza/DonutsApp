@@ -161,8 +161,8 @@ fun DetailsContent(state: DetailsUiState , onClickMinus:()->Unit , onClickPlus:(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         CartControl(text = "-", textColor = Black, backgroundColor = White100 , onClickMinus = onClickMinus)
-                        CartControl(text = state.counter.toString(), textColor = Black, backgroundColor = White100)
-                        CartControl(text = "+", textColor = White, backgroundColor = PrimaryColor100 , onClickPlus = onClickPlus)
+                        CartControl(text = state.counter.toString(), textColor = Black, backgroundColor = White)
+                        CartControl(text = "+", textColor = White, backgroundColor = Black , onClickPlus = onClickPlus)
                     }
 
                     Box(

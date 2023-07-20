@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,7 +38,6 @@ fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDon
         modifier = Modifier.size(width = 138.dp, height = 130.dp).clickable { onClickDonut(donutName) },
     ) {
 
-        val backgroundAnimation = animateColorAsState(targetValue = if (currentIndex % 2 == 0) LightBlue else PinkColor)
         val horizontalGuideLine = createGuidelineFromTop(0.2f)
         val donutTextContainer = createRef()
         val imageContainer = createRef()
@@ -62,7 +62,7 @@ fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDon
         }
 
         Column(
-            Modifier
+            Modifier.shadow(elevation = 4.dp, shape = RoundedCornerShape(16.dp))
                 .constrainAs(donutTextContainer) {
                     bottom.linkTo(parent.bottom)
                     start.linkTo(parent.start)
@@ -70,7 +70,7 @@ fun DonutItem(state: DonutUiState, currentIndex:Int,donutName:String, onClickDon
                 }
                 .size(width = 130.dp, height = 110.dp)
                 .clip(shape = RoundedCornerShape(16.dp))
-                .background(backgroundAnimation.value),
+                .background(White),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(4.dp,
                 alignment = Alignment.CenterVertically

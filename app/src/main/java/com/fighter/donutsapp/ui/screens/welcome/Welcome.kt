@@ -1,7 +1,13 @@
 package com.fighter.donutsapp.ui.screens.welcome
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.MarqueeAnimationMode
+import androidx.compose.foundation.MarqueeSpacing
 import androidx.compose.foundation.background
+import androidx.compose.foundation.basicMarquee
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,8 +21,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -41,6 +50,7 @@ fun WelcomeScreen(navController: NavController) {
     WelcomeContent(onClickGetStarted = { navController.navigateToHome() })
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WelcomeContent(onClickGetStarted: () -> Unit) {
     Box(
@@ -51,7 +61,11 @@ fun WelcomeContent(onClickGetStarted: () -> Unit) {
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.5f),
+                .fillMaxHeight(0.5f)
+                .basicMarquee(
+                    iterations = Int.MAX_VALUE,
+                    spacing = MarqueeSpacing(0.dp)
+                ),
             painter = painterResource(id = R.drawable.bg_donut),
             contentDescription = "",
             contentScale = ContentScale.Crop
